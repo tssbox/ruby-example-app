@@ -17,6 +17,10 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7 # Assuming Ruby 2.7 based on Rails 4.2.4 compatibility
+      - name: Install Bundler 1.17.3
+        run: |
+          gem uninstall bundler -a -x || true
+          gem install bundler -v 1.17.3
       - name: Install Ruby dependencies
         run: |
           bundle install
