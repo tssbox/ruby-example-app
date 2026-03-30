@@ -17,17 +17,19 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.7.8' # Based on Rails 4.2.4 compatibility
+      - name: Install Bundler 1.17.3
+        run: gem install bundler -v 1.17.3
       - name: Install dependencies
         run: |
-          bundle install
+          bundle _1.17.3_ install
         env:
           CI_AGENT_STEP_NAME: Install dependencies
           CI_AGENT_STEP_INDEX: "3"
       - name: Set up database
         run: |
-          rake db:create
-          rake db:migrate
-          rake db:seed
+          bundle _1.17.3_ exec rake db:create
+          bundle _1.17.3_ exec rake db:migrate
+          bundle _1.17.3_ exec rake db:seed
         env:
           CI_AGENT_STEP_NAME: Set up database
           CI_AGENT_STEP_INDEX: "4"
@@ -37,7 +39,7 @@ jobs:
           CI_AGENT_STEP_INDEX: "5"
           secret_key_base: secret
         run: |
-          rails server &
+          bundle _1.17.3_ exec rails server &
       - name: Probe application readiness
         run: |
           i=1; while [ "$i" -le 30 ]; do curl -sS -o /dev/null http://127.0.0.1:3000 && exit 0; sleep 5; i=$((i + 1)); done; exit 1
