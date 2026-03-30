@@ -16,7 +16,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.2.4' # Based on Rails 4.2.4 compatibility
+          ruby-version: '2.7.8' # Based on Rails 4.2.4 compatibility
       - name: Install dependencies
         run: |
           bundle install
