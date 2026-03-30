@@ -153,6 +153,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
   coffee-rails (~> 4.1.0)
+  ffi (< 1.17.0)
   jbuilder (~> 2.0)
   jquery-rails
   pg
