@@ -12,6 +12,15 @@ rake db:migrate
 rake db:seed
 ```
 
+## Bundler version requirement
+
+This project requires Bundler 1.17.3 for dependency installation and all `bundle` commands, due to Rails 4.2.4 requiring Bundler < 2.0. In all environments, use `bundle _1.17.3_` instead of the default `bundle` command. For example:
+
+```
+gem install bundler -v 1.17.3
+bundle _1.17.3_ install
+```
+
 ## Possible Attacks
 
 1. __Brute force account access__.  The app was written with very bad password validation.  Try to write a script that will brute force the password.  __HINT__: Even though there is no link to all of the restful routes for a user, they are still accessible from the URL.  It may help you get the information you need.
