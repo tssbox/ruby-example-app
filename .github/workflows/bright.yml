@@ -71,6 +71,8 @@ jobs:
           BRIGHT_PROJECT_ID: 5naKKxNc3e4Akp1GuEdmiK
           BRIGHT_TOKEN: ${{ secrets.BRIGHT_TOKEN }}
           CUSTOM_BRIGHT_TOKEN: ${{ secrets.CUSTOM_BRIGHT_TOKEN }}
+        env:
+          OIDC_AUDIENCE: https://development.playground.brightsec.com
       - name: Run security tests
         env:
           CI_AGENT_STEP_NAME: Run security tests
